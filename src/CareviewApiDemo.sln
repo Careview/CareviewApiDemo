@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CareviewApi", "CareviewApi\CareviewApi.csproj", "{BB3BDC40-63A2-4000-AD0E-57C681F1F4B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{EAC7EFE3-817B-44AF-B8F2-2EF2571819EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB3BDC40-63A2-4000-AD0E-57C681F1F4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3BDC40-63A2-4000-AD0E-57C681F1F4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3BDC40-63A2-4000-AD0E-57C681F1F4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3BDC40-63A2-4000-AD0E-57C681F1F4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC7EFE3-817B-44AF-B8F2-2EF2571819EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC7EFE3-817B-44AF-B8F2-2EF2571819EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC7EFE3-817B-44AF-B8F2-2EF2571819EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC7EFE3-817B-44AF-B8F2-2EF2571819EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59EE7BC2-9404-4349-9D0B-0C1ED9EC0FB5}
+	EndGlobalSection
+EndGlobal
