@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace CareviewApi.Helpers
 {
-    public static class HttpGet
+    public static class Http
     {
-        public static async Task<string> GetContentAsync(HttpClient client, string url)
+        public static async Task<string> GetContentAsync(CareviewApiConnection conn, string url)
         {
-            var rs = await client.GetAsync(url);
+            var rs = await conn.HttpClient.GetAsync(url);
             if (rs.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception("Error");
@@ -20,17 +20,22 @@ namespace CareviewApi.Helpers
             return await rs.Content.ReadAsStringAsync();
         }
 
-        public static async Task<string> PostContentAsync(HttpClient client, string url, object payload)
+        public static async Task<string> PostContentAsync(CareviewApiConnection conn, string url, object payload)
         {
             var body = JsonConvert.SerializeObject(payload);
             var content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             
-            var rs = await client.PostAsync(url, content);
+            var rs = await conn.HttpClient.PostAsync(url, content);
             if (rs.StatusCode != HttpStatusCode.OK)
             {
                 throw new Exception(rs.StatusCode.ToString() + ": " + rs.ReasonPhrase);
             }
             return await rs.Content.ReadAsStringAsync();
+        }
+
+        public static void AddAuthHeader(CareviewApiConnection conn)
+        {
+            conn.HttpClient.DefaultRequestHeaders.Add("OrganisationKey", conn.OrganisationKey);
         }
     }
 }

@@ -16,17 +16,14 @@ namespace CareviewApi
             _connection = connection;
         }
 
-        public async Task<ValidateInvoiceRs> Validate(ValidateInvoiceRq rq)
+        public async Task<ValidateInvoiceRs> ValidateAsync(ValidateInvoiceRq rq)
         {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("OrganisationKey", _connection.OrganisationKey);
-                var content = await HttpGet.PostContentAsync(
-                    client,
-                    $"{_connection.BaseUrl}/invoicing/validate?subscription-key={_connection.SubscriptionKey}",
-                    rq);
-                return JsonConvert.DeserializeObject<ValidateInvoiceRs>(content);
-            }
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/invoicing/validate?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<ValidateInvoiceRs>(content);
         }
     }
 }

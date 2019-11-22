@@ -32,7 +32,7 @@ namespace Tests.Logic
                 testMode);
 
             var invoicing = new Invoicing(connection);
-            var rs = await invoicing.Validate(new CareviewApi.Models.ValidateInvoiceRq()
+            var rs = await invoicing.ValidateAsync(new CareviewApi.Models.ValidateInvoiceRq()
             {
                 ClientNdisNumber = "",
                 InvoiceLines = new List<CareviewApi.Models.ValidateInvoiceLine>()
