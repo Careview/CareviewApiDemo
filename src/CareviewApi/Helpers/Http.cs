@@ -15,7 +15,7 @@ namespace CareviewApi.Helpers
             var rs = await conn.HttpClient.GetAsync(url);
             if (rs.StatusCode != HttpStatusCode.OK)
             {
-                throw new Exception("Error");
+                throw new Exception(rs.StatusCode.ToString() + ": " + rs.ReasonPhrase);
             }
             return await rs.Content.ReadAsStringAsync();
         }
