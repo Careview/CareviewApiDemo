@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tests.Logic
+namespace Tests
 {
     public class ValidateInvoiceTest
     {
