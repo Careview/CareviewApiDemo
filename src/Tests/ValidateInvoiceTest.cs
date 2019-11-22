@@ -24,16 +24,17 @@ namespace Tests.Logic
         {
             var subscriptionKey = "";
             var organisationKey = "";
-            var clientNdisNumber = "";
+            var testMode = true;
 
             var connection = new CareviewApiConnection(
                 subscriptionKey,
                 organisationKey,
-                true);
+                testMode);
+
             var invoicing = new Invoicing(connection);
             var rs = await invoicing.Validate(new CareviewApi.Models.ValidateInvoiceRq()
             {
-                ClientNdisNumber = clientNdisNumber,
+                ClientNdisNumber = "",
                 InvoiceLines = new List<CareviewApi.Models.ValidateInvoiceLine>()
                 {
                     new CareviewApi.Models.ValidateInvoiceLine()
