@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models;
+using CareviewApi.Models.Invoicing;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -24,6 +24,16 @@ namespace CareviewApi
                 $"{_connection.BaseUrl}/invoicing/validate?subscription-key={_connection.SubscriptionKey}",
                 rq);
             return JsonConvert.DeserializeObject<ValidateInvoiceRs>(content);
+        }
+
+        public async Task<CreateInvoiceRs> CreateAsync(CreateInvoiceRq rq)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/invoicing/create?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<CreateInvoiceRs>(content);
         }
     }
 }

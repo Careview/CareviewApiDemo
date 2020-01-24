@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CareviewApi.Models
+namespace CareviewApi.Models.Invoicing
 {
     public class ValidateInvoiceRs
     {
