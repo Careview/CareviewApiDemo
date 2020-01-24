@@ -22,7 +22,7 @@ namespace Tests
         private Invoicing GetClient()
         {
             var subscriptionKey = "";
-            var organisationKey = "9f9ede44-5ead-4aa4-a634-bbb51a64dec4";
+            var organisationKey = "";
             var testMode = true;
 
             var connection = new CareviewApiConnection(
