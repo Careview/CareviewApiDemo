@@ -7,6 +7,6 @@ namespace CareviewApi.Models.Invoicing
     public class ValidateInvoiceRq
     {
         public string ClientNdisNumber { get; set; }
-        public List<ValidateInvoiceLine> InvoiceLines { get; set; }
+        public List<InvoiceLine> InvoiceLines { get; set; }
     }
 }

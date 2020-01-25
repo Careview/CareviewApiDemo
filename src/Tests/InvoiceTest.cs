@@ -41,9 +41,9 @@ namespace Tests
             var rs = await client.ValidateAsync(new CareviewApi.Models.Invoicing.ValidateInvoiceRq()
             {
                 ClientNdisNumber = "123456789",
-                InvoiceLines = new List<CareviewApi.Models.Invoicing.ValidateInvoiceLine>()
+                InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
                 {
-                    new CareviewApi.Models.Invoicing.ValidateInvoiceLine()
+                    new CareviewApi.Models.Invoicing.InvoiceLine()
                     {
                         DeliveredDate = new DateTime(2019, 11, 20),
                         SupportItemNumber = "01_002_0107_1_1",
@@ -71,9 +71,9 @@ namespace Tests
                 ProviderInvoiceDate = new DateTime(2019, 07, 03),
                 ApprovedByClient = false,
                 Notes = "test 123-456",
-                InvoiceLines = new List<CareviewApi.Models.Invoicing.CreateInvoiceLine>()
+                InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
                 {
-                    new CareviewApi.Models.Invoicing.CreateInvoiceLine()
+                    new CareviewApi.Models.Invoicing.InvoiceLine()
                     {
                         Type = "STAND",
                         DeliveredDate = new DateTime(2019, 07, 03),

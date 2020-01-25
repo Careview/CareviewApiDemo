@@ -12,6 +12,6 @@ namespace CareviewApi.Models.Invoicing
         public DateTime ProviderInvoiceDate { get; set; }
         public bool ApprovedByClient { get; set; }
         public string Notes { get; set; }
-        public List<CreateInvoiceLine> InvoiceLines { get; set; }
+        public List<InvoiceLine> InvoiceLines { get; set; }
     }
 }

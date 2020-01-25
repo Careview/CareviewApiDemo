@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CareviewApi.Models.Invoicing
 {
-    public class CreateInvoiceLine
+    public class InvoiceLine
     {
         public string Type { get; set; }
         public string GstCode { get; set; }
