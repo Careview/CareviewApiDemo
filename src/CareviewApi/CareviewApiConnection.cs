@@ -9,15 +9,15 @@ namespace CareviewApi
     {
         public string BaseUrl { get; set; }
         public readonly string SubscriptionKey;
-        public readonly string OrganisationKey;
+        public readonly string ApiKey;
 
         public CareviewApiConnection(
             string subscriptionKey,
-            string organisationKey,
+            string apiKey,
             bool testMode)
         {
             SubscriptionKey = subscriptionKey;
-            OrganisationKey = organisationKey;
+            ApiKey = apiKey;
 
             BaseUrl = testMode
                 ? $"https://careview.azure-api.net/test"

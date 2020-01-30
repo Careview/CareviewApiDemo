@@ -22,12 +22,12 @@ namespace Tests
         private Invoicing GetClient()
         {
             var subscriptionKey = "";
-            var organisationKey = "";
+            var apiKey = "";
             var testMode = true;
 
             var connection = new CareviewApiConnection(
                 subscriptionKey,
-                organisationKey,
+                apiKey,
                 testMode);
 
             return new Invoicing(connection);

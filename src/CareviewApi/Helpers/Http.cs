@@ -35,7 +35,7 @@ namespace CareviewApi.Helpers
 
         public static void AddAuthHeader(CareviewApiConnection conn)
         {
-            conn.HttpClient.DefaultRequestHeaders.Add("OrganisationKey", conn.OrganisationKey);
+            conn.HttpClient.DefaultRequestHeaders.Add("ApiKey", conn.ApiKey);
         }
     }
 }
