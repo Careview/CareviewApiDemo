@@ -2,7 +2,7 @@ const SUBSCRIPTION_KEY = '';
 const API_KEY = '';
 const TEST = true;
 
-function GetEndpoint() {
+function getEndpoint() {
     return TEST
         ? 'https://careview.azure-api.net/test'
         : 'https://careview.azure-api.net';
@@ -10,7 +10,7 @@ function GetEndpoint() {
 
 
 function getClient(ndisNumber) {
-    var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+    var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
@@ -22,11 +22,11 @@ function getClient(ndisNumber) {
             }
         }
     };
-
-    xmlhttp.open('GET', `${GetEndpoint()}/clients/get/${ndisNumber}?subscription-key=${SUBSCRIPTION_KEY}`, true);
+    
+    xmlhttp.open('GET', `${getEndpoint()}/clients/get/${ndisNumber}?subscription-key=${SUBSCRIPTION_KEY}`, true);
     xmlhttp.setRequestHeader('ApiKey', API_KEY);
     xmlhttp.send();
 }
 
 
-getClient('');
+getClient('123456789');
