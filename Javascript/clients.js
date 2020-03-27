@@ -17,10 +17,8 @@ function getClient(ndisNumber) {
         if (xmlhttp.readyState === 4) {
             if (xmlhttp.status === 200) {
                 console.log(xmlhttp.responseText);
-            } else if (xmlhttp.status === 400) {
-                console.log('Error 400.');
             } else {
-                console.log('Unknown Error.');
+                console.log('Error: ' + JSON.parse(xmlhttp.responseText).message);
             }
         }
     };
