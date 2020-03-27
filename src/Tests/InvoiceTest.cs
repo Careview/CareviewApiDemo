@@ -19,26 +19,17 @@ namespace Tests
         {
         }
 
-        private Invoicing GetClient()
+        private Invoicing GetApiClient()
         {
-            var subscriptionKey = "";
-            var apiKey = "";
-            var testMode = true;
-
-            var connection = new CareviewApiConnection(
-                subscriptionKey,
-                apiKey,
-                testMode);
-
-            return new Invoicing(connection);
+            return new Invoicing(ApiClient.Get());
         }
 
         [Test]
         public async Task TestValidate()
         {
-            var client = GetClient();
+            var api = GetApiClient();
 
-            var rs = await client.ValidateAsync(new CareviewApi.Models.Invoicing.ValidateInvoiceRq()
+            var rs = await api.ValidateAsync(new CareviewApi.Models.Invoicing.ValidateInvoiceRq()
             {
                 ClientNdisNumber = "123456789",
                 InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
@@ -61,9 +52,9 @@ namespace Tests
         [Test]
         public async Task TestCreate()
         {
-            var client = GetClient();
+            var api = GetApiClient();
 
-            var rs = await client.CreateAsync(new CareviewApi.Models.Invoicing.CreateInvoiceRq()
+            var rs = await api.CreateAsync(new CareviewApi.Models.Invoicing.CreateInvoiceRq()
             {
                 ClientNdisNumber = "123456789",
                 ServiceProviderAbn = "123456789",
