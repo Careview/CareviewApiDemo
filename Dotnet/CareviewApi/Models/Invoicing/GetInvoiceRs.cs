@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CareviewApi.Models.Clients
+namespace CareviewApi.Models.Invoicing
 {
-    public class GetRs
+    public class GetInvoiceRs
     {
         public bool Success { get; set; }
-        public Client Client { get; set; }
+        public InvoiceHeader Header { get; set; }
+        public List<InvoiceLine> Lines { get; set; }
         public string Message { get; set; }
     }
 }

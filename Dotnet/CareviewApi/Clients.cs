@@ -16,13 +16,26 @@ namespace CareviewApi
             _connection = connection;
         }
 
-        public async Task<GetRs> Get(string ndisNumber)
+        public async Task<GetClientRs> Get(string ndisNumber)
         {
             Http.AddAuthHeader(_connection);
             var content = await Http.GetContentAsync(
                 _connection,
                 $"{_connection.BaseUrl}/clients/get/{ndisNumber}?subscription-key={_connection.SubscriptionKey}");
-            return JsonConvert.DeserializeObject<GetRs>(content);
+            return JsonConvert.DeserializeObject<GetClientRs>(content);
+        }
+
+        public async Task<SearchRs> Search(string search)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/clients/search?subscription-key={_connection.SubscriptionKey}",
+                new
+                {
+                    Term = search
+                });
+            return JsonConvert.DeserializeObject<SearchRs>(content);
         }
     }
 }

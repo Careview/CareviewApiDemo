@@ -35,5 +35,14 @@ namespace CareviewApi
                 rq);
             return JsonConvert.DeserializeObject<CreateInvoiceRs>(content);
         }
+
+        public async Task<GetInvoiceRs> GetAsync(string reference)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.GetContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/invoicing/get/{reference}?subscription-key={_connection.SubscriptionKey}");
+            return JsonConvert.DeserializeObject<GetInvoiceRs>(content);
+        }
     }
 }

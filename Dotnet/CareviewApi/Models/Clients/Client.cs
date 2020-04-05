@@ -22,5 +22,6 @@ namespace CareviewApi.Models.Clients
         public string PostCode { get; set; }
         public DateTime? PlanStartDate { get; set; }
         public DateTime? PlanEndDate { get; set; }
+        public string Status { get; set; }
     }
 }

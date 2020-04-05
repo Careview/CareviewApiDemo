@@ -29,4 +29,27 @@ function getClient(ndisNumber) {
 }
 
 
+function searchClient(search) {
+    var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4) {
+            if (xmlhttp.status === 200) {
+                console.log(xmlhttp.responseText);
+            } else {
+                console.log('Error: ' + JSON.parse(xmlhttp.responseText).message);
+            }
+        }
+    };
+    
+    xmlhttp.open('POST', `${getEndpoint()}/clients/search?subscription-key=${SUBSCRIPTION_KEY}`, true);
+    xmlhttp.setRequestHeader('ApiKey', API_KEY);
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var params = 'term=' + search;
+    xmlhttp.send(params);
+}
+
+
 getClient('123456789');
+searchClient('ard');

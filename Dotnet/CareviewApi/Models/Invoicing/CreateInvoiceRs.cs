@@ -7,7 +7,8 @@ namespace CareviewApi.Models.Invoicing
     public class CreateInvoiceRs
     {
         public bool Success { get; set; }
-        public string InvoiceReference { get; set; }
+        public InvoiceHeader Header { get; set; }
+        public List<InvoiceLine> Lines { get; set; }
         public string Message { get; set; }
     }
 }

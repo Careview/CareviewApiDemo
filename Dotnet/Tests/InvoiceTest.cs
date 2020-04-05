@@ -46,6 +46,7 @@ namespace Tests
             });
 
             Assert.IsTrue(rs.Success);
+            Assert.IsTrue(rs.Remaining > 0);
             Assert.IsNull(rs.Message);
         }
 
@@ -62,11 +63,13 @@ namespace Tests
                 ProviderInvoiceDate = new DateTime(2019, 07, 03),
                 ApprovedByClient = false,
                 Notes = "test 123-456",
+                CustomReferenceName = "OCR Batch Id",
+                CustomReferenceValue = "OCR-0001",
                 InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
                 {
                     new CareviewApi.Models.Invoicing.InvoiceLine()
                     {
-                        Type = "STAND",
+                        ClaimType = "STAND",
                         DeliveredDate = new DateTime(2019, 07, 03),
                         PlanCategoryId = "1",
                         SupportItemNumber = "01_002_0107_1_1",
@@ -79,8 +82,30 @@ namespace Tests
 
             Assert.IsTrue(rs.Success);
             Assert.IsNull(rs.Message);
-            Assert.IsNotNull(rs.InvoiceReference);
-            Assert.AreNotEqual("", rs.InvoiceReference);
+            Assert.IsNotNull(rs.Header);
+            Assert.IsNotNull(rs.Lines);
+            Assert.IsNotNull(rs.Header.Reference);
+            Assert.AreNotEqual("", rs.Header.Reference);
+            Assert.AreEqual("OCR Batch Id", rs.Header.CustomReferenceName);
+            Assert.AreEqual("OCR-0001", rs.Header.CustomReferenceValue);
+            Assert.AreEqual(1, rs.Lines.Count);
+        }
+
+        [Test]
+        public async Task TestGet()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.GetAsync("NDIS-000013789");
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsNotNull(rs.Header);
+            Assert.IsNotNull(rs.Lines);
+            Assert.AreEqual("NDIS-000013789", rs.Header.Reference);
+            Assert.AreEqual("OCR Batch Id", rs.Header.CustomReferenceName);
+            Assert.AreEqual("OCR-0001", rs.Header.CustomReferenceValue);
+            Assert.AreEqual(1, rs.Lines.Count);
         }
     }
 }
