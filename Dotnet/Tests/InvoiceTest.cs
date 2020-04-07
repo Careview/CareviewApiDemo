@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -89,6 +90,26 @@ namespace Tests
             Assert.AreEqual("OCR Batch Id", rs.Header.CustomReferenceName);
             Assert.AreEqual("OCR-0001", rs.Header.CustomReferenceValue);
             Assert.AreEqual(1, rs.Lines.Count);
+        }
+
+        [Test]
+        public async Task TestAttachFile()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.AttachAsync(new CareviewApi.Models.Invoicing.AttachToInvoiceRq()
+            {
+                Reference = "123456789",
+                Filename = "lolcats.jpg",
+                AttachmentData = File.ReadAllBytes("C:\\Temp\\lolcats.jpg"),
+            });
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsNotNull(rs.Header);
+            Assert.IsNotNull(rs.Header.Reference);
+            Assert.AreNotEqual("", rs.Header.Reference);
+            Assert.AreEqual("lolcats.jpg", rs.Filename);
         }
 
         [Test]

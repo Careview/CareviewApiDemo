@@ -36,6 +36,16 @@ namespace CareviewApi
             return JsonConvert.DeserializeObject<CreateInvoiceRs>(content);
         }
 
+        public async Task<AttachToInvoiceRs> AttachAsync(AttachToInvoiceRq rq)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/invoicing/attach?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<AttachToInvoiceRs>(content);
+        }
+
         public async Task<GetInvoiceRs> GetAsync(string reference)
         {
             Http.AddAuthHeader(_connection);
