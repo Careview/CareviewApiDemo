@@ -60,5 +60,17 @@ namespace Tests
             Assert.IsNull(rs.Message);
             Assert.IsTrue(rs.Result.Any());
         }
+
+        [Test]
+        public async Task TestGetServiceProviders()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.GetServiceProviders();
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsTrue(rs.Result.Any());
+        }
     }
 }
