@@ -42,5 +42,14 @@ namespace CareviewApi
                 $"{_connection.BaseUrl}/lookup/supportcategories?subscription-key={_connection.SubscriptionKey}");
             return JsonConvert.DeserializeObject<GetSupportCategoriesRs>(content);
         }
+
+        public async Task<GetServiceProvidersRs> GetServiceProviders()
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.GetContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/lookup/serviceProviders?subscription-key={_connection.SubscriptionKey}");
+            return JsonConvert.DeserializeObject<GetServiceProvidersRs>(content);
+        }
     }
 }

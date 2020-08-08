@@ -23,5 +23,6 @@ namespace CareviewApi.Models.Clients
         public DateTime? PlanStartDate { get; set; }
         public DateTime? PlanEndDate { get; set; }
         public string Status { get; set; }
+        public string ServiceRegion { get; set; }
     }
 }
