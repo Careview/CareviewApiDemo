@@ -19,7 +19,9 @@ namespace CareviewApi
             SubscriptionKey = subscriptionKey;
             ApiKey = apiKey;
 
-            BaseUrl = "http://localhost/careview.publicapi";
+            BaseUrl = testMode
+                ? $"https://careview.azure-api.net/test"
+                : $"https://careview.azure-api.net";
 
             HttpClient = new HttpClient();
         }
