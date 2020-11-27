@@ -55,7 +55,7 @@ namespace Tests
         {
             var api = GetApiClient();
 
-            var ndisNumber = "123456788";
+            var ndisNumber = "123456789";
             var rs = await api.Create(new CareviewApi.Models.Clients.CreateClientRq()
             {
                 NDISNumber = ndisNumber,
