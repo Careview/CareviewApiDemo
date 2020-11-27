@@ -4,10 +4,11 @@ using System.Text;
 
 namespace CareviewApi.Models.Clients
 {
-    public class SearchRs
+    public class CreateClientRs
     {
         public bool Success { get; set; }
-        public List<Client> Clients { get; set; }
+        public Client Client { get; set; }
+        public List<Client> RelatedClients { get; set; } = new List<Client>();
         public string Message { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace CareviewApi
             return JsonConvert.DeserializeObject<GetClientRs>(content);
         }
 
-        public async Task<SearchRs> Search(string search)
+        public async Task<SearchClientRs> Search(string search)
         {
             Http.AddAuthHeader(_connection);
             var content = await Http.PostContentAsync(
@@ -35,7 +35,17 @@ namespace CareviewApi
                 {
                     Term = search
                 });
-            return JsonConvert.DeserializeObject<SearchRs>(content);
+            return JsonConvert.DeserializeObject<SearchClientRs>(content);
+        }
+
+        public async Task<CreateClientRs> Create(CreateClientRq data)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/clients/create?subscription-key={_connection.SubscriptionKey}",
+                data);
+            return JsonConvert.DeserializeObject<CreateClientRs>(content);
         }
     }
 }
