@@ -10,6 +10,10 @@ The API key is used in the header of the request (header key "ApiKey"). The subs
 
 ## API Endpoint
  
-The API endpoint for production is: https://careview.azure-api.net
-For the test sandbox: https://careview.azure-api.net/test
+- The API endpoint for production is: https://careview.azure-api.net
 
+- For the test sandbox: https://careview.azure-api.net/test
+
+## Sandbox Environment for CRM
+
+You can access a sandbox version of Careview to see changes made into test. Log in to: https://careview-sbox-web.azurewebsites.net
