@@ -51,12 +51,51 @@ namespace Tests
         }
 
         [Test]
+        public async Task TestGetMedicalHistory()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.GetMedicalHistory(new CareviewApi.ViewModels.Clients.GetClientMedicalHistoryRq() { ClientNdisNumber = "123456789", PageNumber = 1 });
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsTrue(rs.MedicalHistory.TotalItems > 0);
+            Assert.IsTrue(rs.MedicalHistory.Result.Any());
+        }
+
+        [Test]
+        public async Task TestGetNotes()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.GetNotes(new CareviewApi.ViewModels.Clients.GetClientNotesRq() { ClientNdisNumber = "123456789", PageNumber = 1 });
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsTrue(rs.Notes.TotalItems > 0);
+            Assert.IsTrue(rs.Notes.Result.Any());
+        }
+
+        [Test]
+        public async Task TestGetTasks()
+        {
+            var api = GetApiClient();
+
+            var rs = await api.GetTasks(new CareviewApi.ViewModels.Clients.GetClientTasksRq() { ClientNdisNumber = "123456789", PageNumber = 1 });
+
+            Assert.IsTrue(rs.Success);
+            Assert.IsNull(rs.Message);
+            Assert.IsTrue(rs.Tasks.TotalItems > 0);
+            Assert.IsTrue(rs.Tasks.Result.Any());
+        }
+
+        [Test]
         public async Task TestCreateClient()
         {
             var api = GetApiClient();
 
             var ndisNumber = "123456789";
-            var rs = await api.Create(new CareviewApi.Models.Clients.CreateClientRq()
+            var rs = await api.Create(new CareviewApi.ViewModels.Clients.CreateClientRq()
             {
                 NDISNumber = ndisNumber,
                 Email = "testparticipant@test.com",
@@ -78,9 +117,9 @@ namespace Tests
                 City = "Test Ville",
                 PostCode = "4321",
 
-                RelatedClients = new List<CareviewApi.Models.Clients.ClientRelationship>()
+                RelatedClients = new List<CareviewApi.Models.ClientRelationship>()
                 {
-                    new CareviewApi.Models.Clients.ClientRelationship()
+                    new CareviewApi.Models.ClientRelationship()
                     {
                         RelationshipType = "Mother",
                         IsPrimaryContact = true,

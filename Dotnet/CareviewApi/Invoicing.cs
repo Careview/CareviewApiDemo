@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models.Invoicing;
+using CareviewApi.ViewModels.Invoicing;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;

@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models.Clients;
+using CareviewApi.ViewModels.Clients;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -36,6 +36,36 @@ namespace CareviewApi
                     Term = search
                 });
             return JsonConvert.DeserializeObject<SearchClientRs>(content);
+        }
+
+        public async Task<GetClientMedicalHistoryRs> GetMedicalHistory(GetClientMedicalHistoryRq rq)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/clients/medical-history?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<GetClientMedicalHistoryRs>(content);
+        }
+
+        public async Task<GetClientNotesRs> GetNotes(GetClientNotesRq rq)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/clients/notes?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<GetClientNotesRs>(content);
+        }
+
+        public async Task<GetClientTasksRs> GetTasks(GetClientTasksRq rq)
+        {
+            Http.AddAuthHeader(_connection);
+            var content = await Http.PostContentAsync(
+                _connection,
+                $"{_connection.BaseUrl}/clients/tasks?subscription-key={_connection.SubscriptionKey}",
+                rq);
+            return JsonConvert.DeserializeObject<GetClientTasksRs>(content);
         }
 
         public async Task<CreateClientRs> Create(CreateClientRq data)

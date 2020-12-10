@@ -30,12 +30,12 @@ namespace Tests
         {
             var api = GetApiClient();
 
-            var rs = await api.ValidateAsync(new CareviewApi.Models.Invoicing.ValidateInvoiceRq()
+            var rs = await api.ValidateAsync(new CareviewApi.ViewModels.Invoicing.ValidateInvoiceRq()
             {
                 ClientNdisNumber = "123456789",
-                InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
+                InvoiceLines = new List<CareviewApi.Models.InvoiceLine>()
                 {
-                    new CareviewApi.Models.Invoicing.InvoiceLine()
+                    new CareviewApi.Models.InvoiceLine()
                     {
                         DeliveredDate = new DateTime(2019, 11, 20),
                         SupportItemNumber = "01_002_0107_1_1",
@@ -56,7 +56,7 @@ namespace Tests
         {
             var api = GetApiClient();
 
-            var rs = await api.CreateAsync(new CareviewApi.Models.Invoicing.CreateInvoiceRq()
+            var rs = await api.CreateAsync(new CareviewApi.ViewModels.Invoicing.CreateInvoiceRq()
             {
                 ClientNdisNumber = "123456789",
                 ServiceProviderAbn = "123456789",
@@ -66,9 +66,9 @@ namespace Tests
                 Notes = "test 123-456",
                 CustomReferenceName = "OCR Batch Id",
                 CustomReferenceValue = "OCR-0001",
-                InvoiceLines = new List<CareviewApi.Models.Invoicing.InvoiceLine>()
+                InvoiceLines = new List<CareviewApi.Models.InvoiceLine>()
                 {
-                    new CareviewApi.Models.Invoicing.InvoiceLine()
+                    new CareviewApi.Models.InvoiceLine()
                     {
                         ClaimType = "STAND",
                         DeliveredDate = new DateTime(2019, 07, 03),
@@ -97,7 +97,7 @@ namespace Tests
         {
             var api = GetApiClient();
 
-            var rs = await api.AttachAsync(new CareviewApi.Models.Invoicing.AttachToInvoiceRq()
+            var rs = await api.AttachAsync(new CareviewApi.ViewModels.Invoicing.AttachToInvoiceRq()
             {
                 Reference = "123456789",
                 Filename = "lolcats.jpg",

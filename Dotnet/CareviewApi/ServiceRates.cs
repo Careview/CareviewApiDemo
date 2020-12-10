@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models.ServiceRates;
+using CareviewApi.ViewModels.ServiceRates;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;

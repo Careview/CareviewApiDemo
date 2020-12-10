@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models.Lookup;
+using CareviewApi.ViewModels.Lookup;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
