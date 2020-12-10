@@ -4,10 +4,8 @@ using System.Text;
 
 namespace CareviewApi.Models.Lookup
 {
-    public class GetSupportCategoriesRs
+    public class GetSupportCategoriesRs : BaseRs
     {
-        public bool Success { get; set; }
         public List<SupportCategory> Result { get; set; }
-        public string Message { get; set; }
     }
 }

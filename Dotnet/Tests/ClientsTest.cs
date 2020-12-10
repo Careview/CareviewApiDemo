@@ -78,9 +78,9 @@ namespace Tests
                 City = "Test Ville",
                 PostCode = "4321",
 
-                RelatedClients = new List<CareviewApi.Models.Clients.CreateClientRelationship>()
+                RelatedClients = new List<CareviewApi.Models.Clients.ClientRelationship>()
                 {
-                    new CareviewApi.Models.Clients.CreateClientRelationship()
+                    new CareviewApi.Models.Clients.ClientRelationship()
                     {
                         RelationshipType = "Mother",
                         IsPrimaryContact = true,

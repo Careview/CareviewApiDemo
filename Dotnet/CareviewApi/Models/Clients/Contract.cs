@@ -7,6 +7,7 @@ namespace CareviewApi.Models.Clients
     public class Contract
     {
         public string Reference { get; set; }
+        public string ContractNumber { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime? NDISPlanStartDate { get; set; }

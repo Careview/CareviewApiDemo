@@ -4,10 +4,8 @@ using System.Text;
 
 namespace CareviewApi.Models.ServiceRates
 {
-    public class SearchServiceRatesRs
+    public class SearchServiceRatesRs : BaseRs
     {
-        public bool Success { get; set; }
         public Service ServiceRate { get; set; }
-        public string Message { get; set; }
     }
 }

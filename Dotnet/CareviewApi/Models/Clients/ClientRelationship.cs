@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CareviewApi.Models.Clients
 {
-    public class CreateClientRelationship
+    public class ClientRelationship
     {
         public string RelationshipType { get; set; }
         public bool IsPrimaryContact { get; set; }

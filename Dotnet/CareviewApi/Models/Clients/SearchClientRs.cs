@@ -4,10 +4,8 @@ using System.Text;
 
 namespace CareviewApi.Models.Clients
 {
-    public class SearchClientRs
+    public class SearchClientRs : BaseRs
     {
-        public bool Success { get; set; }
         public List<Client> Clients { get; set; }
-        public string Message { get; set; }
     }
 }

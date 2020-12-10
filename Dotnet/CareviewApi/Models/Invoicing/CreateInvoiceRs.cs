@@ -4,11 +4,9 @@ using System.Text;
 
 namespace CareviewApi.Models.Invoicing
 {
-    public class CreateInvoiceRs
+    public class CreateInvoiceRs : BaseRs
     {
-        public bool Success { get; set; }
         public InvoiceHeader Header { get; set; }
         public List<InvoiceLine> Lines { get; set; }
-        public string Message { get; set; }
     }
 }

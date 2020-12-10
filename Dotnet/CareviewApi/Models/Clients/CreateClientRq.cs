@@ -50,6 +50,6 @@ namespace CareviewApi.Models.Clients
         public string State { get; set; }
         public string PostCode { get; set; }
 
-        public List<CreateClientRelationship> RelatedClients { get; set; } = new List<CreateClientRelationship>();
+        public List<ClientRelationship> RelatedClients { get; set; } = new List<ClientRelationship>();
     }
 }
