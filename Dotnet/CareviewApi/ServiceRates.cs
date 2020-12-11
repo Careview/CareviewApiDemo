@@ -1,5 +1,5 @@
 ﻿using CareviewApi.Helpers;
-using CareviewApi.Models.ServiceRates;
+using CareviewApi.ViewModels.ServiceRates;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -16,7 +16,7 @@ namespace CareviewApi
             _connection = connection;
         }
 
-        public async Task<SearchRs> Search(string search)
+        public async Task<SearchServiceRatesRs> Search(string search)
         {
             Http.AddAuthHeader(_connection);
             var content = await Http.PostContentAsync(
@@ -26,7 +26,7 @@ namespace CareviewApi
                 {
                     Term = search
                 });
-            return JsonConvert.DeserializeObject<SearchRs>(content);
+            return JsonConvert.DeserializeObject<SearchServiceRatesRs>(content);
         }
     }
 }
