@@ -1,5 +1,9 @@
 # Careview Api Demo
 
+The Careview API is REST JSON. This repository has sample code on how to consume the API and interact with Careview.
+
+<br>
+
 ## Getting Started
 
 You will need a subscription key to use the Careview API. [Contact us](http://www.careviewapp.com/contact-us) to have one provisioned for you.
