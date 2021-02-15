@@ -115,6 +115,7 @@ namespace Tests
                 Address1 = "123 Main Street",
                 Suburb = "Green Hills",
                 City = "Test Ville",
+                State = "ABC",
                 PostCode = "4321",
 
                 RelatedClients = new List<CareviewApi.Models.ClientRelationship>()
