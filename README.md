@@ -30,4 +30,4 @@ You can access a sandbox version of Careview to see changes made into test. Log 
 
 ## Swagger Documentation
 
-Refer to the [http://careviewapidocs.azurewebsites.net](http://careviewapidocs.azurewebsites.net) for reference on API methods.
+Refer to the [https://apidocs.careview.io](https://apidocs.careview.io) for reference on API methods.
