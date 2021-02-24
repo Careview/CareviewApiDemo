@@ -10,7 +10,7 @@ You will need a subscription key to use the Careview API. [Contact us](http://ww
 
 In Careview go into settings, under Integration > Configure API Access [https://app.careview.io/Settings/ApiKeys](https://app.careview.io/Settings/ApiKeys). Here you can create an API key mapped to one of your organisation's user accounts. Go to New, and select the user account for which API calls will act on behalf of. After saving, take note of the generated key. That key is what needs to be passed into the header of each API request. All API activity using the key will assume the identity of that user.
 
-The API key is used in the header of the request (header key "ApiKey"). The subscription key is appended on each call in the URL with a parameter "subscription-key", eg https://careview.azure-api.net/test/clients/get/{ndisNumber}?subscription-key=(Your API Key Here)
+The API key is used in the header of the request (header key "ApiKey"). The subscription key is appended on each call in the URL with a parameter "subscription-key", eg https://careview.azure-api.net/test/clients/get/{ndisNumber}?subscription-key=(Your subscription Key Here)
 
 <br>
 
