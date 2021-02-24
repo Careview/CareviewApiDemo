@@ -1,7 +1,7 @@
 # Careview Api Demo
 
 The Careview API is REST JSON. This repository has sample code on how to consume the API and interact with Careview.
-
+Refer to the [Swagger documentation](http://careviewapidocs.azurewebsites.net) for reference on API methods.
 <br>
 
 ## Getting Started
