@@ -1,11 +1,11 @@
-const SUBSCRIPTION_KEY = '';
-const API_KEY = '';
+const API_KEY = ''; // your API key from careview in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+const SUBSCRIPTION_KEY = ''; // the subscription key is the same as the API key, with the dashes removed
 const TEST = true;
 
 function getEndpoint() {
     return TEST
-        ? 'https://careview.azure-api.net/test'
-        : 'https://careview.azure-api.net';
+        ? 'https://careview-test-api.azurewebsites.net'
+        : 'https://careviewapi.azurewebsites.net';
 }
 
 
